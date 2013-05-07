@@ -131,8 +131,6 @@ func (md *mdContent) fillContentXML(output []byte) error {
 		}
 		switch t := token.(type) {
 		case xml.StartElement:
-			contBuf.WriteString("<")
-			contBuf.WriteString(html.EscapeString(t.Name.Local))
 			switch t.Name.Local {
 			case "h1", "H1":
 				if md.Title1.has() == false {
@@ -147,6 +145,8 @@ func (md *mdContent) fillContentXML(output []byte) error {
 				md.title3.reset()
 				t.Attr = append(t.Attr, xml.Attr{xml.Name{"", "id"}, string(getNewId())})
 			}
+			contBuf.WriteString("<")
+			contBuf.WriteString(html.EscapeString(t.Name.Local))
 			for _, a := range t.Attr {
 				contBuf.WriteString(fmt.Sprintf(" %s=\"%s\"", a.Name.Local, a.Value))
 			}

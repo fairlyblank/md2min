@@ -1,0 +1,1707 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Fairlyblank.github.com by fairlyblank</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700">		
+		<style type="text/css">
+body {
+  padding:50px;
+  font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color:#777;
+  font-weight:300;
+}
+h1, h2, h3, h4, h5, h6 {
+  color:#222;
+  margin:0 0 20px;
+}
+p, ul, ol, table, pre, dl {
+  margin:0 0 20px;
+}
+h1, h2, h3 {
+  line-height:1.1;
+}
+h1 {
+  font-size:28px;
+}
+h2 {
+  color:#393939;
+}
+h3, h4, h5, h6 {
+  color:#494949;
+}
+a {
+  color:#39c;
+  font-weight:400;
+  text-decoration:none;
+}
+a small {
+  font-size:11px;
+  color:#777;
+  margin-top:-0.6em;
+  display:block;
+}
+.wrapper {
+  width:860px;
+  margin:0 auto;
+}
+blockquote {
+  border-left:1px solid #e5e5e5;
+  margin:0;
+  padding:0 0 0 20px;
+  font-style:italic;
+}
+code, pre {
+  font-family:Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
+  color:#333;
+  font-size:12px;
+}
+pre {
+  padding:8px 15px;
+  background: #f8f8f8;  
+  border-radius:5px;
+  border:1px solid #e5e5e5;
+  overflow-x: auto;
+}
+table {
+  width:100%;
+  border-collapse:collapse;
+}
+th, td {
+  text-align:left;
+  padding:5px 10px;
+  border-bottom:1px solid #e5e5e5;
+}
+dt {
+  color:#444;
+  font-weight:700;
+}
+th {
+  color:#444;
+}
+img {
+  max-width:100%;
+}
+header {
+  width:270px;
+  float:left;
+  position:fixed;
+}
+header div {
+	display:block;
+	overflow-x:hidden;
+	overflow-y:scroll;
+	height:400px;
+}
+::-webkit-scrollbar {
+	width: 4px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track-piece {
+	background-color: #f0f0f0;
+	border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #cfcfcf;
+	border-radius: 4px;
+}
+header ul {
+	margin:0;
+	padding:0;
+  list-style:none;
+  height:40px;
+  padding:0;
+  width:270px;
+}
+header li {
+	margin:0;
+	padding:2px;
+#  border-right:1px solid #d2d2d2;
+  height:20px;
+}
+header ul a {
+  line-height:1;
+  text-align:center;
+  padding-top:0;
+  height:40px;
+}
+strong {
+  color:#222;
+  font-weight:700;
+}
+header ul a strong {
+  font-size:14px;
+	display:block;
+  color:#222;
+}
+section {
+  width:500px;
+  float:right;
+  padding-bottom:50px;
+}
+small {
+  font-size:11px;
+}
+hr {
+  border:0;
+  background:#e5e5e5;
+  height:1px;
+  margin:0 0 20px;
+}
+footer {
+  width:270px;
+  float:left;
+  position:fixed;
+  bottom:50px;
+}
+@media print, screen and (max-width: 960px) {
+  div.wrapper {
+    width:auto;
+    margin:0;
+  }
+  header, section, footer {
+    float:none;
+    position:static;
+    width:auto;
+  }
+  header {
+    padding-right:320px;
+  }
+  section {
+    border:1px solid #e5e5e5;
+    border-width:1px 0;
+    padding:20px 0;
+    margin:0 0 20px;
+  }
+  header a small {
+    display:inline;
+  }
+  header ul {
+    position:absolute;
+    right:50px;
+    top:52px;
+  }
+}
+@media print, screen and (max-width: 720px) {
+  body {
+    word-wrap:break-word;
+  }
+  header {
+    padding:0;
+  }
+  header ul, header p.view {
+    position:static;
+  }
+  pre, code {
+    word-wrap:normal;
+  }
+}
+@media print, screen and (max-width: 480px) {
+  body {
+    padding:15px;
+  }
+  header ul {
+    display:none;
+  }
+}
+@media print {
+  body {
+    padding:0.4in;
+    font-size:12pt;
+    color:#444;
+  }
+}
+
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold; } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+
+.type-csharp .highlight .k { color: #0000FF }
+.type-csharp .highlight .kt { color: #0000FF }
+.type-csharp .highlight .nf { color: #000000; font-weight: normal }
+.type-csharp .highlight .nc { color: #2B91AF }
+.type-csharp .highlight .nn { color: #000000 }
+.type-csharp .highlight .s { color: #A31515 }
+.type-csharp .highlight .sc { color: #A31515 }
+		</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>TheLinuxCommandLine</h1>
+        <p class="view">reading notes</a></p>
+				<div>
+<ul>
+  <li class="view">
+    <a href="#id-h3-1">2 What Is The Shell</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-2">3 Navigation</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-3">4 Exploring The System</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-4">5 Manipulating Files And Directories</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-5">6 Working With Commands</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-6">7 Redirection</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-7">8 Seeing The World As The Shell Sees It</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-8">9 Advanced Keyboard Tricks</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-9">10 Permissions</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-10">11 Processes</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-11">12 The Environment</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-12">13 A Gentle Introduction To vi</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-13">14 Customizing The Prompt</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-14">15 Package Management</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-15">16 Storage Media</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-16">17 Networking</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-17">18 C Searching For Files</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-18">19 Archiving And Backup</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-19">20 Regular Expressions</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-20">21 Text Processing</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-21">22 Formatting Output</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-22">23 Printing</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-23">24 Compiling Programs</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-24">25 Writing Your First Script</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-25">26 Starting A Project</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-26">27 Top-Down Design</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-27">28 Flow Control: Branching With if</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-28">29 Reading Keyboard Input</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-29">30 Flow Control: Looping With while / until</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-30">31 Troubleshooting</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-31">32 Flow Control: Branching With case</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-32">33 Positional Parameters</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-33">34 Flow Control: Looping With for</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-34">35 Strings And Numbers</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-35">36 Arrays</a>
+  </li>
+  <li class="view">
+    <a href="#id-h3-36">37 Exotica</a>
+  </li>
+</ul></div>
+				<footer>
+					<p><small>Generated by <a href="https://github.com/fairlyblank/md2min">md2min</a> from <a href="https://github.com/fairlyblank">fairlyblank</a></small></p>
+				</footer>
+      </header>
+      <section></h1>
+
+</h2>
+
+<h3 id="id-h3-1">2 What Is The Shell</h3>
+
+<h4>Your First Keystroke</h4>
+
+<p>If the last character of the prompt is a pound sign (&#34;#&#34;) rather than a dollar sign, the terminal session has superuser privileges. This means either we are logged in as the root user or we selected a terminal emulator that provides superuser (administrative) privilege.</p>
+
+<ul>
+<li><strong>date</strong> display the current time and date</li>
+<li><strong>cal</strong> display a calendar of the current month</li>
+<li><strong>df</strong> see the current amount of free space on your disk drives</li>
+<li><strong>free</strong> display the amount of free memory</li>
+<li><strong>exit</strong> end a terminal session</li>
+</ul>
+
+<h3 id="id-h3-2">3 Navigation</h3>
+
+<ul>
+<li><strong>pwd</strong></li>
+<li><strong>cd</strong>
+
+<ul>
+<li><strong>cd -</strong> change to the previous working dir</li>
+<li><strong>cd ~username</strong> change to the username&#39;s home dir</li>
+</ul></li>
+<li><strong>ls</strong></li>
+</ul>
+
+<h3 id="id-h3-3">4 Exploring The System</h3>
+
+<ul>
+<li><strong>ls</strong></li>
+<li><strong>file</strong> determine file type</li>
+<li><strong>less</strong> view file content
+
+<ul>
+<li><strong>f</strong> forward one window</li>
+<li><strong>b</strong> backward one window</li>
+<li><strong>d</strong> forward one-half window</li>
+<li><strong>u</strong> backward one-half window</li>
+<li><strong>j</strong> forward one line</li>
+<li><strong>k</strong> backward one line</li>
+<li><strong>g</strong> goto first line</li>
+<li><strong>G</strong> goto last line</li>
+<li><strong>q</strong> quit</li>
+</ul></li>
+</ul>
+
+<h3 id="id-h3-4">5 Manipulating Files And Directories</h3>
+
+<ul>
+<li><strong>cp</strong>
+
+<ul>
+<li><strong>cp -u</strong> copy only when the SOURCE file is newer
+than the destination file or when the destination
+file is missing</li>
+</ul></li>
+<li><strong>mv</strong> move/rename files and dirs</li>
+<li><strong>mkdir</strong></li>
+<li><strong>rm</strong> linux <strong>donot</strong> have an undelete command
+
+<ul>
+<li><strong>rm -rf</strong> recusive rm dir</li>
+</ul></li>
+<li><strong>ln</strong> create hard and soft links
+
+<ul>
+<li><strong>ln file link</strong> create a hard link
+
+<ol>
+<li><em>A hard link cannot reference a file outside its own file system. This means a link may not reference a file that is not on the same disk partition as the link itself.</em></li>
+<li><em>A hard link may not reference a directory.</em></li>
+<li><em>When a hard link is deleted, the link is removed but the contents of the file itself continue to exist (that is, its space is not deallocated) until all links to the file are deleted.</em></li>
+</ol></li>
+<li><strong>ln -s item link</strong> create a soft link</li>
+</ul></li>
+</ul>
+
+<h4>Wildcards</h4>
+
+<ul>
+<li><strong>*</strong> matches any characters</li>
+<li><strong>?</strong> matches any single character</li>
+<li><strong>[characters]</strong> Matches any character that is a member of the set characters</li>
+<li><strong>[!characters]</strong> Matches any character that is not a member of the set
+characters</li>
+<li><strong>[[:class:]]</strong> Matches any character that is a member of the specified
+class</li>
+</ul>
+
+<p>Commonly Used Character Classes</p>
+
+<ul>
+<li><strong>[:alnum:]</strong> Matches any alphanumeric character</li>
+<li><strong>[:alpha:]</strong> Matches any alphabetic character</li>
+<li><strong>[:digit:]</strong> Matches any numeral</li>
+<li><strong>[:lower:]</strong> Matches any lowercase letter</li>
+<li><strong>[:upper:]</strong> Matches any uppercase letter</li>
+</ul>
+
+<p>Examples</p>
+
+<ul>
+<li><strong>*</strong> All files</li>
+<li><strong>g*</strong> Any file beginning with &#34;g&#34;</li>
+<li><strong>b*.txt</strong> Any file beginning with &#34;b&#34; followed byny characters and ending with &#34;.txt&#34;</li>
+<li><strong>Data???</strong> Any file beginning with &#34;Data&#34; followed by exactly three characters</li>
+<li><strong>[abc]*</strong> Any file beginning with either an &#34;a&#34;, a &#34;b&#34;, or a &#34;c&#34;</li>
+<li><strong>BACKUP.[0-9][0-9][0-9]</strong> Any file beginning with &#34;BACKUP.&#34; followed by exactly three numerals</li>
+<li><strong>[[:upper:]]*</strong> Any file beginning with an uppercase letter</li>
+<li><strong>[![:digit:]]*</strong> Any file not beginning with a numeral</li>
+<li><strong>*[[:lower:]123]</strong> Any file ending with a lowercase letter or the numerals &#34;1&#34;, &#34;2&#34;, or &#34;3&#34;</li>
+</ul>
+
+<h3 id="id-h3-5">6 Working With Commands</h3>
+
+<ul>
+<li><strong>type</strong> Indicate how a command name is interpreted</li>
+<li><strong>which</strong> Display which executable program will be executed</li>
+<li><strong>help</strong> Get help for shell builtins</li>
+<li><strong>man</strong> Display a command&#39;s manual page</li>
+<li><strong>apropos</strong> Display a list of appropriate commands</li>
+<li><strong>info</strong> Display a command&#39;s info entry</li>
+<li><strong>whatis</strong> Display a very brief description of a command</li>
+<li><strong>alias</strong> Create an alias for a command</li>
+</ul>
+
+<h3 id="id-h3-6">7 Redirection</h3>
+
+<ul>
+<li><strong>cat</strong> Concatenate files. reads one or more files and copies them to standard output.
+
+<ul>
+<li><strong>cat -n file</strong> Show file contents and line number.</li>
+<li><strong>cat file.zip.0* &gt; file.zip</strong> also can be used to join seperated files.</li>
+<li><strong>cat &gt; tmpfile</strong> cat without arguments will read contents from standred input. So type this command, and type contents then press ctrl-d. We can use this behavior to create short text files.</li>
+</ul></li>
+<li><strong>sort</strong> Sort lines of text</li>
+<li><strong>uniq</strong> Report or omit repeated lines</li>
+<li><strong>grep</strong> Print lines matching a pattern
+
+<ul>
+<li><strong>-i</strong> Ignore case. Do not distinguish between upper and lower case characters. May also be specified --ignore-case.</li>
+<li><strong>-v</strong> Invert match. Normally, grep prints lines that contain a match. This option causes grep to print every line that does not contain a match. May also be specified --invert-match.</li>
+<li><strong>-c</strong> Print the number of matches (or non-matches if the -v option is also specified) instead of the lines themselves. May also be specified --count.</li>
+<li><strong>-l</strong> Print the name of each file that contains a match instead of the lines themselves. May also be specified --files-with-matches.</li>
+<li><strong>-L</strong> Like the -l option, but print only the names of files that do not contain matches. May also be specified --files-withoutmatch.</li>
+<li><strong>-n</strong> Prefix each matching line with the number of the line within the file. May also be specified --line-number.</li>
+<li><strong>-h</strong> For multi-file searches, suppress the output of filenames. May also be specified --no-filename.</li>
+</ul></li>
+<li><strong>wc</strong> Print newline, word, and byte counts for each file</li>
+<li><strong>head</strong> Output the first part of a file</li>
+<li><strong>tail</strong> Output the last part of a file
+
+<ul>
+<li><strong>tail -f</strong> real time watch appended contents</li>
+</ul></li>
+<li><strong>tee</strong> Read from standard input and write to standard output and files
+
+<ul>
+<li><strong>ls /usr/bin | tee ls.txt | grep zip</strong> The tee program reads standard input and copies it to both standard output (allowing the data to continue down the pipeline) and to one or more files. This is useful for capturing a pipeline&#39;s contents at an intermediate stage of processing.</li>
+</ul></li>
+</ul>
+
+<p><strong>&gt; outputfile</strong> Simply using the redirection operator with no command preceding it will truncate an existing file or create a new, empty file.</p>
+
+<p><strong>ls 2&gt; errorfile</strong> The file descriptor 2 is placed immediately before the redirection operator to perform the redirection of standard error to the file.</p>
+
+<p><strong>ls &amp;&gt; recfile</strong> Redirect both standard output and standard error to the rec file.</p>
+
+<p><strong>ls 2&gt; /dev/null</strong> Sometimes we don&#39;t want output from a command, we just want to throw it away.</p>
+
+<p><strong>ls /bin /usr/bin | sort | less</strong> Pipelines are often used to perform complex operations on data. It is possible to put several commands together into a pipeline. Frequently, the commands used this way are referred to as filters.</p>
+
+<p><strong>ls /c /d /e /f | sort | uniq | grep program</strong></p>
+
+<h3 id="id-h3-7">8 Seeing The World As The Shell Sees It</h3>
+
+<p><strong>echo</strong> Display a line of text</p>
+
+<h4>Arithmetic Expansion</h4>
+
+<p><strong>echo $(($((5**2)) * 3))</strong> print 75</p>
+
+<h4>Brace Expansion</h4>
+
+<ul>
+<li><strong>echo Front-{A,B,C}-Back</strong> Front-A-Back Front-B-Back Front-C-Back</li>
+<li><strong>echo Number_{1..5}</strong> Number<em>1 Number</em>2 Number<em>3 Number</em>4 Number_5</li>
+<li><strong>echo {Z..A}</strong> Z Y X W V U T S R Q P O N M L K J I H G F E D C B A</li>
+<li><strong>echo a{A{1,2},B{3,4}}b</strong> aA1b aA2b aB3b aB4b</li>
+<li><strong>mkdir {2007..2009}-0{1..9} {2007..2009}-{10..12}</strong>
+
+<ul>
+<li>ls</li>
+<li>2007-01 2007-07 2008-01 2008-07 2009-01 2009-07</li>
+<li>2007-02 2007-08 2008-02 2008-08 2009-02 2009-08</li>
+<li>2007-03 2007-09 2008-03 2008-09 2009-03 2009-09</li>
+<li>2007-04 2007-10 2008-04 2008-10 2009-04 2009-10</li>
+<li>2007-05 2007-11 2008-05 2008-11 2009-05 2009-11</li>
+<li>2007-06 2007-12 2008-06 2008-12 2009-06 2009-12</li>
+</ul></li>
+</ul>
+
+<h4>Parameter Expansion</h4>
+
+<p><strong>echo $PATH</strong></p>
+
+<h4>Command Substitution</h4>
+
+<ul>
+<li><strong>ls -l $(which cp)</strong> -rwxr-xr-x 1 lenovo Administrators 116736 Apr 28  2010 /bin/cp.exe</li>
+<li><strong>ls -l <code>which cp</code></strong> It uses back-quotes instead of the dollar sign and parentheses, which is an alternate syntax for command substitution in older shell programs which is also supported in bash.</li>
+</ul>
+
+<h4>Quotes</h4>
+
+<ul>
+<li><strong>echo $(cal)</strong> February 2008 Su Mo Tu We Th Fr Sa 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29</li>
+<li><strong>Newlines are considered delimiters by the word-splitting mechanism</strong></li>
+<li><strong>echo &#34;$(cal)&#34;</strong></li>
+<li>February 2008</li>
+<li>Su Mo Tu We Th Fr Sa</li>
+<li>1  2</li>
+<li>3  4  5  6  7  8  9</li>
+<li>10 11 12 13 14 15 16</li>
+<li>17 18 19 20 21 22 23</li>
+<li>24 25 26 27 28 29</li>
+<li><strong>echo text ~/*.txt {a,b} $(echo foo) $((2+2)) $USER</strong> text /home/me/ls-output.txt a b foo 4 me</li>
+<li><strong>echo &#34;text ~/*.txt {a,b} $(echo foo) $((2+2)) $USER&#34;</strong> text ~/*.txt {a,b} foo 4 me</li>
+<li><strong>echo &#39;text ~/*.txt {a,b} $(echo foo) $((2+2)) $USER&#39;</strong> text ~/*.txt {a,b} $(echo foo) $((2+2)) $USER</li>
+</ul>
+
+<h3 id="id-h3-8">9 Advanced Keyboard Tricks</h3>
+
+<ul>
+<li><strong>clear</strong> Clear the screen</li>
+<li><strong>history</strong> Display the contents of the history list
+
+<ul>
+<li><strong>!88</strong> will execute the 88th history command</li>
+<li><strong>ctrl-r</strong> will search previous commands</li>
+</ul></li>
+</ul>
+
+<p><strong>same as emacs movements</strong></p>
+
+<h4>Cursor Movement</h4>
+
+<ul>
+<li><strong>Ctrl-a</strong> Move cursor to the beginning of the line.</li>
+<li><strong>Ctrl-e</strong> Move cursor to the end of the line.</li>
+<li><strong>Ctrl-f</strong> Move cursor forward one character; same as the right arrow key.</li>
+<li><strong>Ctrl-b</strong> Move cursor backward one character; same as the left arrow key.</li>
+<li><strong>Alt-f</strong> Move cursor forward one word.</li>
+<li><strong>Alt-b</strong> Move cursor backward one word.</li>
+<li><strong>Ctrl-l</strong> Clear the screen and move the cursor to the top left corner. The
+clear command does the same thing.</li>
+</ul>
+
+<h4>Modifying Text</h4>
+
+<ul>
+<li><strong>Ctrl-d</strong> Delete the character at the cursor location</li>
+<li><strong>Ctrl-t</strong> Transpose (exchange) the character at the cursor location with the one preceding it.</li>
+<li><strong>Alt-t</strong> Transpose the word at the cursor location with the one preceding it.</li>
+<li><strong>Alt-l</strong> Convert the characters from the cursor location to the end of the
+word to lowercase.</li>
+<li><strong>Alt-u</strong> Convert the characters from the cursor location to the end of the
+word to uppercase.</li>
+</ul>
+
+<h4>Cutting And Pasting (Killing And Yanking) Text</h4>
+
+<ul>
+<li><strong>Ctrl-k</strong> Kill text from the cursor location to the end of line.</li>
+<li><strong>Ctrl-u</strong> Kill text from the cursor location to the beginning of the line.</li>
+<li><strong>Alt-d</strong> Kill text from the cursor location to the end of the current word.</li>
+<li><strong>Alt-Backspace</strong> Kill text from the cursor location to the beginning of the current word. If the cursor is at the beginning of a word, kill the previous word.</li>
+<li><strong>Ctrl-y</strong> Yank text from the kill-ring and insert it at the cursor location.</li>
+</ul>
+
+<h4>search history</h4>
+
+<ul>
+<li><strong>Ctrl-p</strong> Move to the previous history entry. Same action as the up arrow.</li>
+<li><strong>Ctrl-n</strong> Move to the next history entry. Same action as the down arrow.</li>
+<li><strong>Alt-&lt;</strong> Move to the beginning (top) of the history list.</li>
+<li><strong>Alt-&gt;</strong> Move to the end (bottom) of the history list, i.e., the current
+command line.</li>
+<li><strong>Ctrl-r</strong> Reverse incremental search. Searches incrementally from the
+current command line up the history list.</li>
+<li><strong>Alt-p</strong> Reverse search, non-incremental. With this key, type in the search string and press enter before the search is performed.</li>
+</ul>
+
+<h4>History Expansion</h4>
+
+<ul>
+<li><strong>!!</strong> Repeat the last command. It is probably easier to press up arrow
+and enter.</li>
+<li><strong>!number</strong> Repeat history list item number.</li>
+<li><strong>!string</strong> Repeat last history list item starting with string.</li>
+<li><strong>!?string</strong> Repeat last history list item containing string.</li>
+</ul>
+
+<h3 id="id-h3-9">10 Permissions</h3>
+
+<ul>
+<li><strong>id</strong> Display user identity</li>
+<li><strong>chmod</strong> Change a file&#39;s mode
+
+<ul>
+<li>Be aware that only the file&#39;s owner or the superuser can change the mode of a file or directory. chmod supports two distinct ways of specifying mode changes: octal number representation, or symbolic representation. We will cover octal number representation first.</li>
+<li>ls -l foo.txt</li>
+<li><em>-rw-rw-r-- 1 me me 0 2008-03-06 14:52 foo.txt</em></li>
+<li><strong>chmod 600 foo.txt</strong></li>
+<li>ls -l foo.txt</li>
+<li><em>-rw------- 1 me me 0 2008-03-06 14:52 foo.txt</em></li>
+<li><strong>chmod also supports a symbolic notation for specifying file modes.</strong>
+
+<ul>
+<li><strong>u+x</strong> Add execute permission for the owner.</li>
+<li><strong>u-x</strong> Remove execute permission from the owner.</li>
+<li><strong>+x</strong> Add execute permission for the owner, group, and world. Equivalent to a+x.</li>
+<li><strong>o-rw</strong> Remove the read and write permission from anyone besides the owner and group owner.</li>
+<li><strong>go=rw</strong> Set the group owner and anyone besides the owner to have read and write permission. If either the group owner or world previously had execute permissions, they are removed.</li>
+<li><strong>u+x,go=rx</strong> Add execute permission for the owner and set the permissions for the group and others to read and execute. Multiple specifications may be separated by commas.</li>
+</ul></li>
+</ul></li>
+<li><strong>umask</strong> Set the default file permissions</li>
+<li><strong>su</strong> Run a shell as another user</li>
+<li><strong>sudo</strong> Execute a command as another user
+
+<ul>
+<li>The sudo command is like su in many ways, but has some important additional capabilities. The administrator can configure sudo to allow an ordinary user to execute commands as a different user (usually the superuser) in a very controlled way. In particular, a user may be restricted to one or more specific commands and no others. Another important difference is that the use of sudo does not require access to the superuser&#39;s password. To authenticate using sudo, the user uses his/her own password.</li>
+</ul></li>
+<li><strong>chown</strong> Change a file&#39;s owner
+
+<ul>
+<li><strong>Superuser privileges are required to use this command.</strong></li>
+<li><strong>chown [owner][:[group]] file...</strong>
+
+<ul>
+<li><strong>bob</strong> Changes the ownership of the file from its current owner to user bob.</li>
+<li><strong>bob:users</strong> Changes the ownership of the file from its current owner to user bob and changes the file group owner to group users.</li>
+<li><strong>:admins</strong> Changes the group owner to the group admins. The file owner is unchanged.</li>
+<li><strong>bob:</strong> Change the file owner from the current owner to user bob and changes the group owner to the login group of user bob.</li>
+</ul></li>
+</ul></li>
+<li><strong>chgrp</strong> Change a file&#39;s group ownership</li>
+<li><strong>passwd</strong> Change a user&#39;s password</li>
+</ul>
+
+<p>User accounts are defined in the /etc/passwd file and groups are defined in the /etc/group file. When user accounts and groups are created, these files are modified along with /etc/shadow which holds information about the user&#39;s password.</p>
+
+<h4>File Type</h4>
+
+<p>ls -l foo.txt
+-rw-rw-r-- 1 me me 0 2008-03-06 14:52 foo.txt</p>
+
+<ul>
+<li><strong>-</strong> A regular file.</li>
+<li><strong>d</strong> A directory.</li>
+<li><strong>l</strong> A symbolic link. Notice that with symbolic links, the remaining file attributes are always &#34;rwxrwxrwx&#34; and are dummy values. The real file attributes are those of the file the symbolic link points to.</li>
+<li><strong>c</strong> A character special file. This file type refers to a device that handles data as a stream of bytes, such as a terminal or modem.</li>
+<li><strong>b</strong> A block special file. This file type refers to a device that handles data in blocks, such as a hard drive or CD-ROM drive.</li>
+</ul>
+
+<h4>Permission Attributes</h4>
+
+<ul>
+<li><strong>r</strong>
+
+<ul>
+<li><strong>files</strong> Allows a file to be opened and read.</li>
+<li><strong>directories</strong> Allows a directory&#39;s contents to be listed if the execute attribute is also set.</li>
+</ul></li>
+<li><strong>w</strong>
+
+<ul>
+<li><strong>files</strong> Allows a file to be written to or truncated, however this attribute does not allow files to be renamed or deleted. The ability to delete or rename files is determined by directory attributes.</li>
+<li><strong>directories</strong> Allows files within a directory to be created, deleted, and renamed if the execute attribute is also set.</li>
+</ul></li>
+<li><strong>x</strong>
+
+<ul>
+<li><strong>files</strong> Allows a file to be treated as a program and executed. Program files written in scripting languages must also be set as readable to be executed.</li>
+<li><strong>directories</strong> Allows a directory to be entered, e.g., cd directory.</li>
+</ul></li>
+</ul>
+
+<h3 id="id-h3-10">11 Processes</h3>
+
+<ul>
+<li><strong>ps</strong> Report a snapshot of current processes
+
+<ul>
+<li><strong>ps auxew</strong></li>
+</ul></li>
+<li><strong>top</strong> Display tasks</li>
+<li><strong>jobs</strong> List active jobs</li>
+<li><strong>bg</strong> Place a job in the background
+
+<ul>
+<li>To launch a program so that it is immediately placed in the background, we follow the command with an- &#34;&amp;&#34; character.</li>
+</ul></li>
+<li><strong>fg</strong> Place a job in the foreground</li>
+<li><strong>kill</strong> Send a signal to a process
+
+<ul>
+<li><strong>kill [-signal] PID...</strong></li>
+<li><strong>-1 HUP</strong> Hangup. This is a vestige of the good old days when terminals were attached to remote computers with phone lines and modems. The signal is used to indicate to programs that the controlling terminal has &#34;hung up.&#34; The effect of this signal can be demonstrated by closing a terminal session. The foreground program running on the terminal will be sent the signal and will terminate. This signal is also used by many daemon programs to cause a reinitialization. This means that when a daemon is sent this signal, it will restart and re-read its configuration file. The Apache web server is an example of a daemon that uses the HUP signal in this way.</li>
+<li><strong>2 INT</strong> Interrupt. Performs the same function as the Ctrl-c key sent from the terminal. It will usually terminate a program.</li>
+<li><strong>9 KILL</strong> Kill. This signal is special. Whereas programs may choose to handle signals sent to them in different ways, including ignoring them all together, the KILL signal is never actually sent to the target program. Rather, the kernel immediately terminates the process. When a process is terminated in this manner, it is given no opportunity to &#34;clean up&#34; after itself or save its work. For this reason, the KILL signal should only be used as a last resort when other termination signals fail.</li>
+<li><strong>15 TERM</strong> Terminate. This is the default signal sent by the kill command. If a program is still &#34;alive&#34; enough to receive signals, it will terminate.</li>
+<li><strong>18 CONT</strong> Continue. This will restore a process after a STOP signal.</li>
+<li><strong>19 STOP</strong> Stop. This signal causes a process to pause without terminating. Like the KILL signal, it is not sent to the target process, and thus it cannot beignored.</li>
+<li><strong>3 QUIT</strong> Quit.</li>
+<li><strong>11 SEGV</strong> Segmentation Violation. This signal is sent if a program makes illegal use of memory, that is, it tried to write somewhere it was not allowed to.</li>
+<li><strong>20 TSTP</strong> Terminal Stop. This is the signal sent by the terminal when the Ctrl-z key is pressed. Unlike the STOP signal, the TSTP signal is received by the process and may be ignored.</li>
+<li><strong>28 WINCH</strong> Window Change. This is a signal sent by the system when a window changes size. Some programs , like top and less will respond to this signal by redrawing themselves to fit the new window dimensions.</li>
+</ul></li>
+<li><strong>killall</strong> Kill processes by name</li>
+<li><strong>shutdown</strong> Shutdown or reboot the system
+
+<ul>
+<li><strong>shutdown -r now</strong></li>
+<li><strong>shutdown -h now</strong></li>
+</ul></li>
+</ul>
+
+<p>When the terminal receives one of these keystrokes, it sends a signal to the program in the foreground. In the case of Ctrl-c, a signal called INT (Interrupt) is sent; with Ctrl-z, a signal called TSTP (Terminal Stop.) Programs, in turn, &#34;listen&#34; for signals and may act upon them as they are received.</p>
+
+<ul>
+<li><strong>pstree</strong> Outputs a process list arranged in a tree-like pattern showing the parent/child relationships between processes.</li>
+<li><strong>vmstat</strong> Outputs a snapshot of system resource usage including, memory, swap and disk I/O. To see a continuous display, follow the command with a time delay (in seconds) for updates. For example: vmstat 5. Terminate the output with Ctrl-c.</li>
+<li><strong>xload</strong> A graphical program that draws a graph showing system load over time.</li>
+<li><strong>tload</strong> Similar to the xload program, but draws the graph in the terminal. Terminate the output with Ctrl-c.</li>
+</ul>
+
+<h3 id="id-h3-11">12 The Environment</h3>
+
+<ul>
+<li><strong>printenv</strong> Print part or all of the environment</li>
+<li><strong>set</strong> Set shell options</li>
+<li><strong>export</strong> Export environment to subsequently executed programs</li>
+<li><strong>alias</strong> Create an alias for a command</li>
+</ul>
+
+<h4>How Is The Environment Established?</h4>
+
+<p>When we log on to the system, the bash program starts, and reads a series of configuration scripts called startup files, which define the default environment shared by all users. This is followed by more startup files in our home directory that define our personal environment. The exact sequence depends on the type of shell session beingstarted. There are two kinds: a login shell session and a non-login shell session.</p>
+
+<p>A login shell session is one in which we are prompted for our user name and password; when we start a virtual console session, for example.</p>
+
+<ul>
+<li><strong>/etc/profile</strong> A global configuration script that applies to all users.</li>
+<li><strong>~/.bash_profile</strong> A user&#39;s personal startup file. Can be used to extend or override settings in the global configuration script.</li>
+<li><strong>~/.bash_login</strong> If ~/.bash_profile is not found, bash attempts to read this script.</li>
+<li><strong>~/.profile</strong> If neither ~/.bash<em>profile nor ~/.bash</em>login is found, bash attempts to read this file. This is the default in Debian-based distributions, such as Ubuntu.</li>
+</ul>
+
+<p>A non-login shell session typically occurs when we launch a terminal session in the GUI.</p>
+
+<ul>
+<li><strong>/etc/bash.bashrc</strong> A global configuration script that applies to all users.</li>
+<li><strong>~/.bashrc</strong> A user&#39;s personal startup file. Can be used to extend or override settings in the global configuration script.</li>
+</ul>
+
+<p>The ~/.bashrc file is probably the most important startup file from the ordinary user&#39;s point of view, since it is almost always read. Non-login shells read it by default and most startup files for login shells are written in such a way as to read the ~/.bashrc file as well.</p>
+
+<p>The changes we have made to our .bashrc will not take affect until we close our terminal session and start a new one, since the .bashrc file is only read at the beginning of a session. However, we can force bash to re-read the modified .bashrc file with the following command:
+<strong>source .bashrc</strong></p>
+
+<h3 id="id-h3-12">13 A Gentle Introduction To vi</h3>
+
+<h3 id="id-h3-13">14 Customizing The Prompt</h3>
+
+<h3 id="id-h3-14">15 Package Management</h3>
+
+<p>Most distributions fall into one of two camps of packaging technologies: the Debian &#34;.deb&#34; camp and the Red Hat &#34;.rpm&#34; camp. There are some important exceptions such as Gentoo, Slackware, and Foresight, but most others use one of these two basic systems.</p>
+
+<ul>
+<li><strong>Debian Style (.deb)</strong> Debian, Ubuntu, Xandros, Linspire
+
+<ul>
+<li><strong>Low-Level Tools</strong> dpkg</li>
+<li><strong>High-Level Tools</strong> apt-get, aptitude</li>
+</ul></li>
+<li><strong>Red Hat Style (.rpm)</strong> Fedora, CentOS, Red Hat Enterprise Linux, OpenSUSE, Mandriva, PCLinuxOS
+
+<ul>
+<li><strong>Low-Level Tools</strong> rpm</li>
+<li><strong>High-Level Tools</strong> yum</li>
+</ul></li>
+</ul>
+
+<h4>Common Package Management Tasks</h4>
+
+<ul>
+<li><strong>Debian</strong>
+
+<ul>
+<li><strong>search</strong>
+
+<ul>
+<li>apt-get update</li>
+<li>apt-cache search search_string</li>
+</ul></li>
+<li><strong>install</strong>
+
+<ul>
+<li>apt-get update</li>
+<li>apt-get install package_name</li>
+</ul></li>
+<li><strong>remove</strong>
+
+<ul>
+<li>apt-get remove package_name</li>
+</ul></li>
+<li><strong>update</strong>
+
+<ul>
+<li>apt-get update</li>
+<li>apt-get upgrade</li>
+</ul></li>
+<li><strong>list</strong>
+
+<ul>
+<li>dpkg --list</li>
+</ul></li>
+<li><strong>if a package is installed</strong>
+
+<ul>
+<li>dpkg --status package_name</li>
+</ul></li>
+<li><strong>info</strong>
+
+<ul>
+<li>apt-cache show package_name</li>
+</ul></li>
+</ul></li>
+<li><strong>Red Hat</strong>
+
+<ul>
+<li><strong>search</strong>
+
+<ul>
+<li>yum search search_string</li>
+</ul></li>
+<li><strong>install</strong>
+
+<ul>
+<li>yum install package_name</li>
+</ul></li>
+<li><strong>remove</strong>
+
+<ul>
+<li>yum erase package_name</li>
+</ul></li>
+<li><strong>update</strong>
+
+<ul>
+<li>yum update</li>
+</ul></li>
+<li><strong>list</strong>
+
+<ul>
+<li>rpm -qa</li>
+</ul></li>
+<li><strong>if a package is installed</strong>
+
+<ul>
+<li>rpm -q package_name</li>
+</ul></li>
+<li><strong>info</strong>
+
+<ul>
+<li>yum info package_name</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h5>Installing A Package From A Package File</h5>
+
+<p>If a package file has been downloaded from a source other than a repository, it can be installed directly (though without dependency resolution) using a low-level tool.</p>
+
+<p>Example: If the emacs-22.1-7.fc7-i386.rpm package file had been downloaded from a non-repository site, it would be installed this way:
+<strong>rpm -i emacs-22.1-7.fc7-i386.rpm</strong></p>
+
+<p>Note: Since this technique uses the low-level rpm program to perform the installation, no dependency resolution is performed. If rpm discovers a missing dependency, rpm will exit with an error.</p>
+
+<ul>
+<li><strong>Debian</strong> dpkg --install package_file</li>
+<li><strong>Red Hat</strong> rpm -i package_file</li>
+</ul>
+
+<h5>Upgrading A Package From A Package File</h5>
+
+<ul>
+<li><strong>Debian</strong> dpkg --install package_file</li>
+<li><strong>Red Hat</strong> rpm -U package_file</li>
+</ul>
+
+<h5>Finding Which Package Installed A File</h5>
+
+<ul>
+<li><strong>Debian</strong> dpkg --search file_name</li>
+<li><strong>Red Hat</strong> rpm -qf file_name</li>
+</ul>
+
+<h3 id="id-h3-15">16 Storage Media</h3>
+
+<ul>
+<li><strong>mount</strong> Mount a file system</li>
+<li><strong>umount</strong> Unmount a file system</li>
+<li><strong>fsck</strong> Check and repair a file system</li>
+<li><strong>fdisk</strong> Partition table manipulator</li>
+<li><strong>mkfs</strong> Create a file system</li>
+<li><strong>fdformat</strong> Format a floppy disk</li>
+<li><strong>dd</strong> Write block oriented data directly to a device</li>
+<li><strong>genisoimage (mkisofs)</strong> Create an ISO 9660 image file</li>
+<li><strong>wodim (cdrecord)</strong> Write data to optical storage media</li>
+<li><strong>md5sum</strong> Calculate an MD5 checksum</li>
+</ul>
+
+<p>There is a file named /etc/fstab that lists the devices (typically hard disk partitions) that are to be mounted at boot time.</p>
+
+<ul>
+<li><strong>/dev/fd*</strong> Floppy disk drives.</li>
+<li><strong>/dev/hd*</strong> IDE (PATA) disks on older systems. Typical motherboards contain two IDE connectors or channels, each with a cable with two attachment points for drives. The first drive on the cable is called the master device and the second is called the slave device. The device names are ordered such that /dev/hda refers to the master device on the first channel, /dev/hdb is the slave device on the first channel; /dev/hdc, the master device on the second channel, and so on. A trailing digit indicates the partition number on the device. For example, /dev/hda1 refers to the first partition on the first hard drive on the system while / dev/hda refers to the entire drive.</li>
+<li><strong>/dev/lp*</strong> Printers.</li>
+<li><strong>/dev/sd*</strong> SCSI disks. On recent Linux systems, the kernel treats all disklike devices (including PATA/SATA hard disks, flash drives, and USB mass storage devices, such as portable music players and digital cameras) as SCSI disks. The rest of the naming system is similar to the older /dev/hd* naming scheme described above.</li>
+<li><strong>/dev/sr*</strong> Optical drives (CD/DVD readers and burners)</li>
+</ul>
+
+<h4>Creating New File Systems</h4>
+
+<h5>Manipulating Partitions With fdisk</h5>
+
+<p>The <strong>fdisk</strong> program allows us to interact directly with disk-like devices (such as hard disk drives and flash drives) at a very low level. With this tool we can edit, delete, and create partitions on the device. To work with our flash drive, we must first unmount it (if needed) and then invoke the fdisk program as follows:</p>
+
+<ul>
+<li><strong>$ sudo umount /dev/sdb1</strong></li>
+<li><strong>$ sudo fdisk /dev/sdb</strong></li>
+</ul>
+
+<p>Notice that we must specify the device in terms of the entire device, not by partition number. After the program starts up, we will see the following prompt:</p>
+
+<h5>Creating A New File System With mkfs</h5>
+
+<p>With our partition editing done (lightweight though it might have been) it&#39;s time to create a new file system on our flash drive. To do this, we will use mkfs (short for &#34;make file system&#34;), which can create file systems in a variety of formats. To create an ext3 file system on the device, we use the &#34;-t&#34; option to specify the &#34;ext3&#34; system type, followed by the name of device containing the partition we wish to format:</p>
+
+<ul>
+<li><strong>$ sudo mkfs -t ext3 /dev/sdb1</strong></li>
+</ul>
+
+<h5>Moving Data Directly To/From Devices</h5>
+
+<p>However, if we could treat a disk drive as simply a large collection
+of data blocks, we could perform useful tasks, such as cloning devices.
+The dd program performs this task. It copies blocks of data from one place to another. It uses a unique syntax (for historical reasons) and is usually used this way:</p>
+
+<ul>
+<li><strong>dd if=input<em>file of=output</em>file [bs=block_size [count=blocks]]</strong></li>
+<li><strong>dd if=/dev/sdb of=/dev/sdc</strong></li>
+<li><strong>dd if=/dev/sdb of=flash_drive.img</strong></li>
+</ul>
+
+<h6>Creating An Image Copy Of A CD-ROM</h6>
+
+<ul>
+<li><strong>dd if=/dev/cdrom of=ubuntu.iso</strong></li>
+</ul>
+
+<h6>Creating An Image From A Collection Of Files</h6>
+
+<ul>
+<li><strong>genisoimage -o cd-rom.iso -R -J ~/cd-rom-files</strong></li>
+</ul>
+
+<h6>Mounting An ISO Image Directly</h6>
+
+<p>There is a trick that we can use to mount an iso image while it is still on our hard disk and treat it as though it was already on optical media. By adding the &#34;-o loop&#34; option to mount (along with the required &#34;-t iso9660&#34; file system type), we can mount the image file as though it were a device and attach it to the file system tree:</p>
+
+<ul>
+<li><strong>mkdir /mnt/iso_image</strong></li>
+<li><strong>mount -t iso9660 -o loop image.iso /mnt/iso_image</strong></li>
+</ul>
+
+<h6>Blanking A Re-Writable CD-ROM</h6>
+
+<ul>
+<li><strong>wodim dev=/dev/cdrw blank=fast</strong></li>
+</ul>
+
+<h6>Writing An Image</h6>
+
+<ul>
+<li><strong>wodim dev=/dev/cdrw image.iso</strong></li>
+</ul>
+
+<h3 id="id-h3-16">17 Networking</h3>
+
+<ul>
+<li><strong>ping</strong> - Send an ICMP ECHO_REQUEST to network hosts</li>
+<li><strong>traceroute</strong> - Print the route packets trace to a network host</li>
+<li><strong>netstat</strong> - Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships
+
+<ul>
+<li><strong>netstat -ie</strong>
+
+<ul>
+<li><strong>lo</strong> is the loopback interface, a virtual interface that the system uses to &#34;talk to itself&#34;.</li>
+<li>When performing causal network diagnostics, the important things to look for are the presence of the word &#34;UP&#34; at the beginning of the fourth line for each interface, indicating that the network interface is enabled, and the presence of a valid IP address in the inet addr field on the second line. For systems using DHCP (Dynamic Host Configuration Protocol), a valid IP address in this field will verify that the DHCP is working.</li>
+</ul></li>
+<li><strong>netstat -r</strong>
+
+<ul>
+<li>Kernel IP routing table</li>
+<li>Destination Gateway Genmask Flags MSS Window irtt Iface</li>
+<li><strong>192.168.1.0 * 255.255.255.0 U 0 0 0 eth0</strong></li>
+<li><strong>default 192.168.1.1 0.0.0.0 UG 0 0 0 eth0</strong></li>
+<li>In this simple example, we see a typical routing table for a client machine on a LAN (Local Area Network) behind a firewall/router. The first line of the listing shows the destination 192.168.1.0. IP addresses that end in zero refer to networks rather than individual hosts, so this destination means any host on the LAN. The next field, Gateway, is the name or IP address of the gateway (router) used to go from the current host to the destination network. An asterisk in this field indicates that no gateway is needed.</li>
+<li>The last line contains the destination default. This means any traffic destined for a network that is not otherwise listed in the table. In our example, we see that the gateway is defined as a router with the address of 192.168.1.1, which presumably knows what to do with the destination traffic.</li>
+</ul></li>
+</ul></li>
+<li><strong>ftp</strong> - Internet file transfer program</li>
+<li><strong>wget</strong> - Non-interactive network downloader</li>
+<li><strong>ssh</strong> - OpenSSH SSH client (remote login program)
+
+<ul>
+<li><strong>ssh -i id_rsa fairlyblank@192.168.26.152</strong></li>
+<li><strong>sftp -i id_rsa fairlyblank@192.168.26.152</strong></li>
+</ul></li>
+</ul>
+
+<h3 id="id-h3-17">18 C Searching For Files</h3>
+
+<ul>
+<li><strong>locate</strong> Find files by name</li>
+<li><strong>find</strong> Search for files in a directory hierarchy
+
+<ul>
+<li><strong>find ~</strong> show all files recusively in home dir
+
+<ul>
+<li><strong>-depth</strong> Direct find to process a directory&#39;s files before the directory itself. This option is automatically applied when the -delete action is specified.</li>
+<li><strong>-maxdepth levels</strong> Set the maximum number of levels that find will descend into a directory tree when performing tests and actions.</li>
+<li><strong>-mindepth levels</strong> Set the minimum number of levels that find will descend into a directory tree before applying tests and actions.</li>
+<li><strong>-mount</strong> Direct find not to traverse directories that are mounted on other file systems.</li>
+<li><strong>-noleaf</strong> Direct find not to optimize its search based on the assumption that it is searching a Unix-like file system. This is needed when scanning DOS/Windows file systems and CD-ROMs.</li>
+</ul></li>
+<li><strong>find ~ | wc -l</strong> show files&amp;dir numbers in home dir</li>
+<li><strong>find ~ -type d | wc -l</strong> show dir numbers in home dir</li>
+<li><strong>find ~ -type f | wc -l</strong> show files numbers in home dir</li>
+<li><strong>find ~ -type f -name &#34;*.JPG&#34; -size +1M | wc -l</strong> look for all the regular files that match the wild card pattern &#34;*.JPG&#34; and are larger than one megabyte
+
+<ul>
+<li><strong>-cmin n</strong> Match files or directories whose content or attributes were last modified exactly n minutes ago. To specify less than n minutes ago, use -n and to specify more than n minutes ago, use +n.</li>
+<li><strong>-cnewer file</strong> Match files or directories whose contents or attributes were last modified more recently than those of file.</li>
+<li><strong>-ctime n</strong> Match files or directories whose contents or attributes were last modified n*24 hours ago.</li>
+<li><strong>-empty</strong> Match empty files and directories.</li>
+<li><strong>-group name</strong> Match file or directories belonging to group. group may be expressed as either a group name or as a numeric group ID.</li>
+<li><strong>-iname pattern</strong> Like the -name test but case insensitive.</li>
+<li><strong>-inum n</strong> Match files with inode number n. This is helpful for finding all the hard links to a particular inode.</li>
+<li><strong>-mmin n</strong> Match files or directories whose contents were modified n minutes ago.</li>
+<li><strong>-mtime n</strong> Match files or directories whose contents were modified n*24 hours ago.</li>
+<li><strong>-name pattern</strong> Match files and directories with the specified wild card pattern.</li>
+<li><strong>-newer file</strong> Match files and directories whose contents were modified more recently than the specified file. This is very useful when writing shell scripts that perform file backups. Each time you make a backup, update a file (such as a log), then use find to determine which files that have changed since the last update.</li>
+<li><strong>-nouser</strong> Match file and directories that do not belong to a valid user. This can be used to find files belonging to deleted accounts or to detect activity by attackers.</li>
+<li><strong>-nogroup</strong> Match files and directories that do not belong to a valid group.</li>
+<li><strong>-perm mode</strong> Match files or directories that have permissions set to the specified mode. mode may be expressed by either octal or symbolic notation.</li>
+<li><strong>-samefile name</strong> Similar to the -inum test. Matches files that share the same inode number as file name.</li>
+<li><strong>-size n</strong> Match files of size n.</li>
+<li><strong>-type c</strong> Match files of type c.</li>
+<li><strong>-user name</strong> Match files or directories belonging to user name. The user may be expressed by a user name or by a numeric user ID.</li>
+</ul></li>
+<li><strong>find ~ ( -type f -not -perm 0600 ) -or ( -type d -not -perm 0700 )</strong> look for all the files with permissions that are not 0600 and the directories with permissions that are not 0700.
+
+<ul>
+<li><strong>-and</strong> Match if the tests on both sides of the operator are true. May be shortened to -a. Note that when no operator is present, -and is implied by default.</li>
+<li><strong>-or</strong> Match if a test on either side of the operator is true. May be shortened to -o.</li>
+<li><strong>-not</strong> Match if the test following the operator is false. May be abbreviated with an exclamation point (!).</li>
+<li><strong>( )</strong> Groups tests and operators together to form larger expressions. This is used to control the precedence of the logical evaluations. By default, find evaluates from left to right. It is often necessary to override the default evaluation order to obtain the desired result. Even if not needed, it is helpful sometimes to include the grouping characters to improve readability of the command. Note that since the parentheses characters have special meaning to the shell, they must be quoted when using them on the command line to allow them to be passed as arguments to find. Usually the backslash character is used to escape them.</li>
+</ul></li>
+<li><strong>find ~ -type f -name &#39;*.BAK&#39; -delete</strong> delete files that have the file extension &#34;.BAK&#34;
+
+<ul>
+<li><strong>-delete</strong> Delete the currently matching file.</li>
+<li><strong>-ls</strong> Perform the equivalent of ls -dils on the matching file. Output is sent to standard output.</li>
+<li><strong>-print</strong> Output the full pathname of the matching file to standard output. This is the default action if no other action is specified.</li>
+<li><strong>-quit</strong> Quit once a match has been made.</li>
+</ul></li>
+<li><strong>-exec rm &#39;{}&#39; &#39;;&#39;</strong> command is the name of a command, {} is a symbolic representation of the current pathname and the semicolon is a required delimiter indicating the end of the command.
+
+<ul>
+<li><strong>find ~ -type f -name &#39;foo*&#39; -ok ls -l &#39;{}&#39; &#39;;&#39;</strong> By using the -ok action in place of -exec, the user is prompted before execution of each specified command.</li>
+<li><strong>find ~ -type f -name &#39;foo*&#39; -exec ls -l &#39;{}&#39; +</strong> By changing the trailing semicolon character to a plus sign, we activate the ability of find to combine the results of the search into an argument list for a single execution of the desired command.</li>
+</ul></li>
+</ul></li>
+<li><strong>xargs</strong> It accepts input from standard input and converts it into an argument list for a specified command.
+
+<ul>
+<li><strong>find ~ -type f -name &#39;foo*&#39; -print | xargs ls -l</strong></li>
+<li><strong>find ~ -iname &#39;*.jpg&#39; -print0 | xargs --null ls -l</strong> Unix-like systems allow embedded spaces (and even newlines!) in filenames. The find command provides the action -print0, which produces null separated output, and the xargs command has the --null option, which accepts null separated input.</li>
+</ul></li>
+<li><strong>touch</strong> Change file times</li>
+<li><strong>stat</strong> Display file or file system status</li>
+</ul>
+
+<h3 id="id-h3-18">19 Archiving And Backup</h3>
+
+<ul>
+<li><strong>gzip</strong> Compress or expand files
+
+<ul>
+<li>The gzip program is used to compress one or more files. When executed, it replaces the original file with a compressed version of the original. The corresponding gunzip program is used to restore compressed files to their original, uncompressed form.</li>
+<li><strong>-c</strong> Write output to standard output and keep original files. May also be specified with --stdout and --to-stdout.</li>
+<li><strong>-d</strong> Decompress. This causes gzip to act like gunzip. May also be specified with --decompress or --uncompress.</li>
+<li><strong>-f</strong> Force compression even if compressed version of the original file already exists. May also be specified with --force.</li>
+<li><strong>-h</strong> Display usage information. May also be specified with --help.</li>
+<li><strong>-l</strong> List compression statistics for each file compressed. May also be specified with --list.</li>
+<li><strong>-r</strong> If one or more arguments on the command line are directories, recursively compress files contained within them. May also be specified with --recursive.</li>
+<li><strong>-t</strong> Test the integrity of a compressed file. May also be specified with --test.</li>
+<li><strong>-v</strong> Display verbose messages while compressing. May also be specified with --verbose.</li>
+<li><strong>-number</strong> Set amount of compression. number is an integer in the range of 1 (fastest, least compression) to 9 (slowest, most compression). The values 1 and 9 may also be expressed as --fast and --best, respectively. The default value is 6.</li>
+</ul></li>
+<li><strong>bzip2</strong> A block sorting file compressor n</li>
+<li><strong>tar</strong> Tape archiving utility
+
+<ul>
+<li><strong>c</strong> Create an archive from a list of files and/or directories.</li>
+<li><strong>x</strong> Extract an archive.</li>
+<li><strong>r</strong> Append specified pathnames to the end of an archive.</li>
+<li><strong>t</strong> List the contents of an archive.</li>
+</ul></li>
+<li><strong>zip</strong> Package and compress files
+
+<ul>
+<li>Unless we include the -r option for recursion, only the playground directory (but none of its contents) is stored.</li>
+</ul></li>
+<li><strong>rsync</strong> Remote file and directory synchronization</li>
+</ul>
+
+<h3 id="id-h3-19">20 Regular Expressions</h3>
+
+<p>Regular expression metacharacters consist of the following:
+<strong>^ $ . [ ] { } - ? * + ( ) | </strong></p>
+
+<h4>The Any Character <strong>.</strong></h4>
+
+<h4>Anchors <strong>^</strong> <strong>$</strong></h4>
+
+<ul>
+<li>Note that the regular expression &#34;^$&#34; (a beginning and an end with nothing in between) will match blank lines.</li>
+</ul>
+
+<h4>Bracket Expressions And Character Classes <strong>[]</strong></h4>
+
+<ul>
+<li>In addition to matching any character at a given position in our regular expression, we can also match a single character from a specified set of characters by using bracket expressions.</li>
+</ul>
+
+<h4>Alternation <strong>|</strong></h4>
+
+<h4>Quantifiers</h4>
+
+<ul>
+<li><strong>?</strong> Match An Element Zero Or One Time
+
+<ul>
+<li>This quantifier means, in effect, make the preceding element optional.</li>
+</ul></li>
+<li><strong>*</strong> Match An Element Zero Or More Times
+
+<ul>
+<li><strong>[[:upper:]][[:upper:][:lower:] ]*.</strong></li>
+<li>Let&#39;s say we wanted to see if a string was a sentence; that is, it starts with an uppercase letter, then contains any number of upper and lowercase letters and spaces, and ends with a period.</li>
+</ul></li>
+<li><strong>+</strong> Match An Element One Or More Times
+
+<ul>
+<li><strong>^([[:alpha:]]+ ?)+$</strong></li>
+<li>Here is a regular expression that will only match lines consisting of groups of one or more alphabetic characters separated by single spaces.</li>
+</ul></li>
+<li><strong>{}</strong> Match An Element A Specific Number Of Times
+
+<ul>
+<li><strong>{n}</strong> Match the preceding element if it occurs exactly n times.</li>
+<li><strong>{n,m}</strong> Match the preceding element if it occurs at least n times, but no more than m times.</li>
+<li><strong>{n,}</strong> Match the preceding element if it occurs n or more times.</li>
+<li><strong>{,m}</strong> Match the preceding element if it occurs no more than m times.</li>
+</ul></li>
+</ul>
+
+<h3 id="id-h3-20">21 Text Processing</h3>
+
+<ul>
+<li><strong>cat</strong> Concatenate files and print on the standard output
+
+<ul>
+<li><strong>-A</strong> option, which is used to display nonprinting characters in the text.</li>
+<li><strong>-n</strong> which numbers lines, and <strong>-s</strong>, which suppresses the output of multiple blank lines.</li>
+</ul></li>
+<li><strong>sort</strong> Sort lines of text files
+
+<ul>
+<li><strong>-b</strong> --ignore-leading-blanks By default, sorting is performed on the entire line, starting with the first character in the line. This option causes sort to ignore leading spaces in lines and calculates sorting based on the first non-whitespace character on the line.</li>
+<li><strong>-f</strong> --ignore-case Makes sorting case insensitive.</li>
+<li><strong>-n</strong> --numeric-sort Performs sorting based on the numeric evaluation of a string. Using this option allows sorting to be performed on numeric values rather than alphabetic values.</li>
+<li><strong>-r</strong> --reverse Sort in reverse order. Results are in descending rather than ascending order.</li>
+<li><strong>-k</strong> --key=field1[,field2] Sort based on a key field located from field1 to field2 rather than the entire line. See discussion below.</li>
+<li><strong>-m</strong> --merge Treat each each argument as the name of a presorted file. Merge multiple files into a single sorted result without performing any additional sorting.</li>
+<li><strong>-o</strong> --output=file Send sorted output to file rather than standard output.</li>
+<li><strong>-t</strong> --field-separator=char Define the field separator character. By default fields are separated by spaces or tabs.</li>
+</ul></li>
+<li><strong>uniq</strong> Report or omit repeated lines
+
+<ul>
+<li><strong>-c</strong> Output a list of duplicate lines preceded by the number of times the line occurs.</li>
+<li><strong>-d</strong> Only output repeated lines, rather than unique lines.</li>
+<li><strong>-f n</strong> Ignore n leading fields in each line. Fields are separated by whitespace as they are in sort; however, unlike sort, uniq has no option for setting an alternate field separator.</li>
+<li><strong>-i</strong> Ignore case during the line comparisons.</li>
+<li><strong>-s</strong> n Skip (ignore) the leading n characters of each line.</li>
+<li><strong>-u</strong> Only output unique lines. This is the default.</li>
+</ul></li>
+<li><strong>cut</strong> Remove sections from each line of files
+
+<ul>
+<li><strong>-c char_list</strong> Extract the portion of the line defined by char_list. The list may consist of one or more comma-separated numerical ranges.</li>
+<li><strong>-f field_list</strong> Extract one or more fields from the line as defined by field_list. The list may contain one or more fields or field ranges separated by commas.</li>
+<li><strong>-d delim_char</strong> When -f is specified, use delim_char as the field delimiting character. By default, fields must be separated by a single tab character.</li>
+<li><strong>--complement</strong> Extract the entire line of text, except for those portions specified by -c and/or -f.</li>
+</ul></li>
+<li><strong>paste</strong> Merge lines of files</li>
+<li><strong>join</strong> Join lines of two files on a common field</li>
+<li><strong>comm</strong> Compare two sorted files line by line</li>
+<li><strong>diff</strong> Compare files line by line
+
+<ul>
+<li><strong>normal format</strong>
+
+<ul>
+<li><strong>r1ar2</strong> Append the lines at the position r2 in the second file to the position r1 in the first file.</li>
+<li><strong>r1cr2</strong> Change (replace) the lines at position r1 with the lines at the position r2 in the second file.</li>
+<li><strong>r1dr2</strong> Delete the lines in the first file at position r1, which would have appeared at range r2 in the second file</li>
+</ul></li>
+<li><strong>context format</strong>
+
+<ul>
+<li><strong>blank</strong> A line shown for context. It does not indicate a difference between the two files.</li>
+<li><strong>-</strong> A line deleted. This line will appear in the first file but not in the second file.</li>
+<li><strong>+</strong> A line added. This line will appear in the second file but not in the first file.</li>
+<li><strong>!</strong> A line changed. The two versions of the line will be displayed, each in its respective section of the change group.</li>
+</ul></li>
+<li><strong>unified format</strong>
+
+<ul>
+<li><strong>blank</strong> This line is shared by both files.</li>
+<li><strong>-</strong> This line was removed from the first file.</li>
+<li><strong>+</strong> This line was added to the first file.</li>
+</ul></li>
+</ul></li>
+<li><strong>patch</strong> Apply a diff file to an original</li>
+<li><strong>tr</strong> Translate or delete characters</li>
+<li><strong>sed</strong> Stream editor for filtering and transforming text</li>
+<li><strong>aspell</strong> Interactive spell checker</li>
+</ul>
+
+<h3 id="id-h3-21">22 Formatting Output</h3>
+
+<ul>
+<li><strong>nl</strong> Number lines</li>
+<li><strong>fold</strong> Wrap each line to a specified length</li>
+<li><strong>fmt</strong> A simple text formatter</li>
+<li><strong>pr</strong> Prepare text for printing</li>
+<li><strong>printf</strong> Format and print data</li>
+<li><strong>groff</strong> A document formatting system</li>
+</ul>
+
+<h3 id="id-h3-22">23 Printing</h3>
+
+<ul>
+<li><strong>pr</strong> Convert text files for printing</li>
+<li><strong>lpr</strong> Print files</li>
+<li><strong>a2ps</strong> Format files for printing on a PostScript printer</li>
+<li><strong>lpstat</strong> Show printer status information</li>
+<li><strong>lpq</strong> Show printer queue status</li>
+<li><strong>lprm</strong> Cancel print jobs</li>
+</ul>
+
+<h3 id="id-h3-23">24 Compiling Programs</h3>
+
+<ul>
+<li><strong>make</strong> Utility To Maintain Programs</li>
+</ul>
+
+<h3 id="id-h3-24">25 Writing Your First Script</h3>
+
+<h3 id="id-h3-25">26 Starting A Project</h3>
+
+<ul>
+<li><strong>a=z</strong> Assign the string &#34;z&#34; to variable a.</li>
+<li><strong>b=&#34;a string&#34;</strong> Embedded spaces must be within quotes.</li>
+<li><strong>c=&#34;a string and $b&#34;</strong> Other expansions such as variables can be expanded into the assignment.</li>
+<li><strong>d=$(ls -l foo.txt)</strong> Results of a command.</li>
+<li><strong>e=$((5 * 7))</strong> Arithmetic expansion.</li>
+<li><strong>f=&#34;\t\ta string\n&#34;</strong> Escape sequences such as tabs and newlines.</li>
+</ul>
+
+<p><strong>a here document</strong></p>
+
+<ul>
+<li>FTP_SERVER=ftp.nl.debian.org</li>
+<li>FTP_PATH=/debian/dists/lenny/main/installer-i386/current/images/cdrom</li>
+<li>REMOTE<em>FILE=debian-cd</em>info.tar.gz</li>
+<li>ftp -n &lt;&lt; <em>EOF</em></li>
+<li>open $FTP_SERVER</li>
+<li>user anonymous me@linuxbox</li>
+<li>cd $FTP_PATH</li>
+<li>hash</li>
+<li>get $REMOTE_FILE</li>
+<li>bye</li>
+<li><em>EOF</em></li>
+<li>ls -l $REMOTE_FILE</li>
+</ul>
+
+<p>If we change the redirection operator from &#34;&lt;&lt;&#34; to &#34;&lt;&lt;-&#34;, the shell will ignore leading tab characters in the here document. This allows a here document to be indented, which can improve readability.</p>
+
+<h3 id="id-h3-26">27 Top-Down Design</h3>
+
+<h3 id="id-h3-27">28 Flow Control: Branching With if</h3>
+
+<h4>test expression</h4>
+
+<ul>
+<li><strong>file1 -ef file2</strong> file1 and file2 have the same inode numbers (the two filenames refer to the same file by hard linking).</li>
+<li><strong>file1 -nt file2</strong> file1 is newer than file2.</li>
+<li><strong>file1 -ot file2</strong> file1 is older than file2.</li>
+<li><strong>-b file</strong> file exists and is a block special (device) file.</li>
+<li><strong>-c file</strong> file exists and is a character special (device) file.</li>
+<li><strong>-d file</strong> file exists and is a directory.</li>
+<li><strong>-e file</strong> file exists.</li>
+<li><strong>-f file</strong> file exists and is a regular file.</li>
+<li><strong>-g file</strong> file exists and is set-group-ID.</li>
+<li><strong>-G file</strong> file exists and is owned by the effective group ID.</li>
+<li><strong>-k file</strong> file exists and has its &#34;sticky bit&#34; set.</li>
+<li><strong>-L file</strong> file exists and is a symbolic link.</li>
+<li><strong>-O file</strong> file exists and is owned by the effective user ID.</li>
+<li><strong>-p file</strong> file exists and is a named pipe.</li>
+<li><strong>-r file</strong> file exists and is readable (has readable permission for the effective user).</li>
+<li><strong>-s file</strong> file exists and has a length greater than zero.</li>
+<li><strong>-S file</strong> file exists and is a network socket.</li>
+<li><strong>-t fd</strong> fd is a file descriptor directed to/from the terminal. This can be used to determine whether standard input/output/ error is being redirected.</li>
+<li><strong>-u file</strong> file exists and is setuid.</li>
+<li><strong>-w file</strong> file exists and is writable (has write permission for the effective user).</li>
+<li><strong>-x file</strong> file exists and is executable (has execute/search permission for the effective user).</li>
+</ul>
+
+<h4>String Expressions</h4>
+
+<ul>
+<li><strong>string</strong> string is not null.</li>
+<li><strong>-n string</strong> The length of string is greater than zero.</li>
+<li><strong>-z string</strong> The length of string is zero.</li>
+<li><strong>string1 = string2 string1 == string2</strong> string1 and string2 are equal. Single or double equal signs may be used, but the use of double equal signs is greatly preferred.</li>
+<li><strong>string1 != string2</strong> string1 and string2 are not equal.</li>
+<li><strong>string1 &gt; string2</strong> string1 sorts after string2.</li>
+<li><strong>string1 &lt; string2</strong> string1 sorts before string2.</li>
+</ul>
+
+<h4>Integer Expressions</h4>
+
+<ul>
+<li><strong>integer1 -eq integer2</strong> integer1 is equal to integer2.</li>
+<li><strong>integer1 -ne integer2</strong> integer1 is not equal to integer2.</li>
+<li><strong>integer1 -le integer2</strong> integer1 is less than or equal to integer2.</li>
+<li><strong>integer1 -lt integer2</strong> integer1 is less than integer2.</li>
+<li><strong>integer1 -ge integer2</strong> integer1 is greater than or equal to integer2.</li>
+<li><strong>integer1 -gt integer2</strong> integer1 is greater than integer2.</li>
+</ul>
+
+<h4>A More Modern Version Of test</h4>
+
+<ul>
+<li><strong>[[string1 =~ regex]]</strong></li>
+<li><strong>(( ))</strong> - Designed For Integers</li>
+</ul>
+
+<h3 id="id-h3-28">29 Reading Keyboard Input</h3>
+
+<ul>
+<li><strong>read [-options] [variable...]</strong> read Read Values From Standard Input
+
+<ul>
+<li>If no variables are listed after the read command, a shell variable, REPLY, will be assigned all the input.</li>
+<li><strong>-a array</strong> Assign the input to array, starting with index zero. We will cover arrays in Chapter 36.</li>
+<li><strong>-d delimiter</strong> The first character in the string delimiter is used to indicate end of input, rather than a newline character.</li>
+<li><strong>-e</strong> Use Readline to handle input. This permits input editing in the same manner as the command line.</li>
+<li><strong>-n num</strong> Read num characters of input, rather than an entire line.</li>
+<li><strong>-p prompt</strong> Display a prompt for input using the string prompt.</li>
+<li><strong>-r</strong> Raw mode. Do not interpret backslash characters as escapes.</li>
+<li><strong>-s</strong> Silent mode. Do not echo characters to the display as they are typed. This is useful when inputting passwords and other confidential information.</li>
+<li><strong>-t seconds</strong> Timeout. Terminate input after seconds. read returns a non-zero exit status if an input times out.</li>
+<li><strong>-u fd</strong> Use input from file descriptor fd, rather than standard input.</li>
+</ul></li>
+</ul>
+
+<h3 id="id-h3-29">30 Flow Control: Looping With while / until</h3>
+
+<p><strong>while commands; do commands; done</strong></p>
+
+<h3 id="id-h3-30">31 Troubleshooting</h3>
+
+<h3 id="id-h3-31">32 Flow Control: Branching With case</h3>
+
+<p><strong>case word in [pattern [| pattern]...) commands ;;]... esac</strong></p>
+
+<h3 id="id-h3-32">33 Positional Parameters</h3>
+
+<h4>Accessing The Command Line</h4>
+
+<ul>
+<li><strong>$0 ~ $9</strong> The shell provides a set of variables called positional parameters that contain the individual words on the command line. The variables are named 0 through 9.</li>
+<li><strong>$#</strong> that yields the number of arguments on the command line.</li>
+</ul>
+
+<h4>shift Getting Access To Many Arguments</h4>
+
+<p>The shift command causes all of the parameters to &#34;move down one&#34; each time it is executed. In fact, by using shift, it is possible to get by with only one parameter (in addition to $0, which never changes)</p>
+
+<ul>
+<li><strong>$*</strong> Expands into the list of positional parameters, starting with 1. When surrounded by double quotes, it expands into a double quoted string containing all of the positional parameters, each separated by the first character of the IFS shell variable (by default a space character).</li>
+<li><strong>$@</strong> Expands into the list of positional parameters, starting with 1. When surrounded by double quotes, it expands each positional parameter into a separate word surrounded by double quotes.</li>
+</ul>
+
+<h3 id="id-h3-33">34 Flow Control: Looping With for</h3>
+
+<ul>
+<li><strong>for variable [in words]; do commands done</strong></li>
+<li><strong>for (( expression1; expression2; expression3 )); do commands done</strong></li>
+</ul>
+
+<h3 id="id-h3-34">35 Strings And Numbers</h3>
+
+<h4>Expansions To Manage Empty Variables</h4>
+
+<ul>
+<li><strong>${parameter:-word}</strong> If parameter is unset (i.e., does not exist) or is empty, this expansion results in the value of word. If parameter is not empty, the expansion results in the value of parameter.</li>
+<li><strong>${parameter:=word}</strong>  If parameter is unset or empty, this expansion results in the value of word. In addition, the value of word is assigned to parameter. If parameter is not empty, the expansion results in the value of parameter.</li>
+<li><strong>${parameter:?word}</strong> If parameter is unset or empty, this expansion causes the script to exit with an error, and the contents of word are sent to standard error. If parameter is not empty, the expansion results in the value of parameter.</li>
+<li><strong>${parameter:+word}</strong> If parameter is unset or empty, the expansion results in nothing. If parameter is not empty, the value of word is substituted for parameter; however, the value of parameter is not changed.</li>
+</ul>
+
+<h4>Expansions That Return Variable Names</h4>
+
+<ul>
+<li><strong>${!prefix*} ${!prefix@}</strong> This expansion returns the names of existing variables with names beginning with prefix.</li>
+</ul>
+
+<h4>String Operations</h4>
+
+<ul>
+<li><strong>${#parameter}</strong> Expands into the length of the string contained by parameter.</li>
+<li><strong>${parameter:offset}
+${parameter:offset:length}</strong>
+This expansion is used to extract a portion of the string contained in parameter.</li>
+<li><strong>${parameter#pattern}
+${parameter##pattern}</strong>
+This expansion removes a leading portion of the string contained in parameter defined by pattern. pattern is a wildcard pattern like those used in pathname expansion. The difference in the two forms is that the # form removes the shortest match, while the ## form removes the longest match.</li>
+<li><strong>${parameter%pattern}
+${parameter%%pattern}</strong>
+These expansions are the same as the # and ## expansions above, except they remove text from the end of the string contained in parameter rather than from the beginning.</li>
+<li><strong>${parameter/pattern/string}
+${parameter//pattern/string}
+${parameter/#pattern/string}
+${parameter/%pattern/string}</strong>
+This expansion performs a search and replace upon the contents of parameter. If text is found matching wildcard pattern, it is replaced with the contents of string. In the normal form, only the first occurrence of pattern is replaced. In the // form, all occurrences are replaced. The /# form requires that the match occur at the beginning of the string, and the /% form requires the match to occur at the end of the string. /string may be omitted, which causes the text matched by pattern to be deleted.</li>
+</ul>
+
+<h4>Arithmetic Evaluation And Expansion</h4>
+
+<p><strong>$((expression))</strong></p>
+
+<ul>
+<li><strong>number</strong> By default, numbers without any notation are treated as decimal (base 10) integers.</li>
+<li><strong>0number</strong> In arithmetic expressions, numbers with a leading zero are considered octal.</li>
+<li><strong>0xnumber</strong> Hexadecimal notation</li>
+<li><strong>base#number</strong> number is in base</li>
+</ul>
+
+<p><strong>Simple Arithmetic</strong></p>
+
+<ul>
+<li><strong>+</strong> Addition</li>
+<li><strong>-</strong> Subtraction</li>
+<li><strong>*</strong> Multiplication</li>
+<li><strong>/</strong> Integer division</li>
+<li><strong>**</strong> Exponentiation</li>
+<li><strong>%</strong> Modulo (remainder)</li>
+</ul>
+
+<p><strong>Assignment</strong></p>
+
+<ul>
+<li><strong>parameter = value</strong> Simple assignment. Assigns value to parameter.</li>
+<li><strong>parameter += value</strong> Addition. Equivalent to parameter = parameter + value</li>
+<li><strong>parameter -= value</strong> Subtraction. Equivalent to parameter = parameter - value</li>
+<li><strong>parameter *= value</strong> Multiplication. Equivalent to parameter = parameter * value</li>
+<li><strong>parameter /= value</strong> Integer division. Equivalent to parameter = parameter / value</li>
+<li><strong>parameter %= value</strong> Modulo. Equivalent to parameter = parameter % value</li>
+<li><strong>parameter++</strong> Variable post-increment. Equivalent to parameter = parameter + 1 (however, see discussion below)</li>
+<li><strong>parameter--</strong> Variable post-decrement. Equivalent to parameter = parameter - 1</li>
+<li><strong>++parameter</strong> Variable pre-increment. Equivalent to parameter = parameter + 1</li>
+<li><strong>--parameter</strong> Variable pre-decrement. Equivalent to parameter = parameter - 1</li>
+</ul>
+
+<p><strong>Bit Operations</strong></p>
+
+<ul>
+<li><strong>~</strong> Bitwise negation. Negate all the bits in a number.</li>
+<li><strong>&lt;&lt;</strong> Left bitwise shift. Shift all the bits in a number to the left.</li>
+<li><strong>&gt;&gt;</strong> Right bitwise shift. Shift all the bits in a number to the right.</li>
+<li><strong>&amp;</strong> Bitwise AND. Perform an AND operation on all the bits in two numbers.</li>
+<li><strong>|</strong> Bitwise OR. Perform an OR operation on all the bits in two numbers.</li>
+<li><strong>^</strong> Bitwise XOR. Perform an exclusive OR operation on all the bits in two numbers.</li>
+</ul>
+
+<p><strong>Logic</strong></p>
+
+<ul>
+<li><strong>&lt;=</strong> Less than or equal to</li>
+<li><strong>&gt;=</strong> Greater than or equal to</li>
+<li><strong>&lt;</strong> Less than</li>
+<li><strong>&gt;</strong> Greater than</li>
+<li><strong>==</strong> Equal to</li>
+<li><strong>!=</strong> Not equal to</li>
+<li><strong>&amp;&amp;</strong> Logical AND</li>
+<li><strong>||</strong> Logical OR</li>
+<li><strong>expr1?expr2:expr3</strong> Comparison (ternary) operator. If expression expr1 evaluates to be non-zero (arithmetic true) then expr2, else expr3.</li>
+</ul>
+
+<h3 id="id-h3-35">36 Arrays</h3>
+
+<h4>Assigning Values To An Array</h4>
+
+<p><strong>name[subscript]=value
+name=(value1 value2 ...)</strong></p>
+
+<p><strong>Outputting The Entire Contents Of An Array</strong></p>
+
+<ul>
+<li>The behavior of notations <strong>${animals[*]}</strong> and <strong>${animals[@]}</strong> are identical until they are quoted. The * notation results in a single word containing the array¡¯s contents, while the @ notation results in three words, which matches the arrays &#34;real&#34; contents.</li>
+</ul>
+
+<p><strong>echo ${#a[@]}</strong> number of array elements</p>
+
+<p><strong>echo ${#a[100]}</strong> length of element 100</p>
+
+<p><strong>${!array[*]} ${!array[@]}</strong> As bash allows arrays to contain ¡°gaps¡± in the assignment of subscripts, it is sometimes useful to determine which elements actually exist. This can be done with a parameter expansion using the following forms.</p>
+
+<p><strong>foo+=(d e f)</strong> Adding Elements To The End Of An Array</p>
+
+<p><strong>unset foo</strong> Deleting An Array</p>
+
+<h3 id="id-h3-36">37 Exotica</h3>
+</section>
+    </div>
+    <script type="script/javascript">
+var metas = document.getElementsByTagName('meta');
+var i;
+if (navigator.userAgent.match(/iPhone/i)) {
+  for (i=0; i<metas.length; i++) {
+    if (metas[i].name == "viewport") {
+      metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+    }
+  }
+  document.addEventListener("gesturestart", gestureStart, false);
+}
+function gestureStart() {
+  for (i=0; i<metas.length; i++) {
+    if (metas[i].name == "viewport") {
+      metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+    }
+  }
+}
+		</script>
+  </body>
+</html>

@@ -100,6 +100,7 @@ type mdContent struct {
 	listMenu listMenu
 	ListMenu string
 	Content string
+	Css string
 }
 
 func (md *mdContent) init(name string) *mdContent {

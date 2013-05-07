@@ -4,6 +4,7 @@ import (
 	"os"
 	"io"
 	"fmt"
+	"flag"
 	"bytes"
 	"strings"
 	"strconv"
@@ -15,9 +16,8 @@ import (
 	"github.com/russross/blackfriday"
 )
 
-func usage() {
-	fmt.Fprintf(os.Stderr, "Usage: %s mdfile\n\tmdfile: markdown file name\n", os.Args[0])
-}
+var mode string
+var modeList []string
 
 func pFail() {
 	if err := recover(); err != nil {
@@ -29,7 +29,7 @@ type getId func() []byte
 
 func h3Factory() (getId, getId)  {
 	var id uint64 = 0
-	tmp := []byte("id-h3-")
+	tmp := []byte("id-" + mode + "-")
 	buf := make([][]byte, 0)
 	return func() []byte {
 		id++
@@ -79,7 +79,7 @@ type a struct {
 }
 
 type li struct {
-	Class string `xml:"class,attr"`
+//	Class string `xml:"class,attr"`
 	A a `xml:"a"`
 }
 
@@ -95,25 +95,30 @@ func (l *listMenu) init() {
 }
 
 type mdContent struct {
-	Title1, Title2 title
 	title3 title
 	listMenu listMenu
 	ListMenu string
 	Content string
-	Css string
+	Align string
+	Color string
 }
 
-func (md *mdContent) init(name string) *mdContent {
-	md.Title1.init()
-	md.Title2.init()
+func (md *mdContent) init() *mdContent {
 	md.title3.init()
 	md.listMenu.init()
+	if mode == "none" {
+		md.Align = "margin: 0 auto;"
+		md.Color = "#ffffff"
+	} else {
+		md.Align = "float: right;"
+		md.Color = "#efefef"
+	}
 	return md
 }
 
 func (md *mdContent) addToUl(id []byte) {
 	a := &a{string(append([]byte{'#'}, id...)), strings.Trim(md.title3.String(), " \t\n")}
-	md.listMenu.Lis = append(md.listMenu.Lis, li{"view", *a})
+	md.listMenu.Lis = append(md.listMenu.Lis, li{*a})
 	md.title3.reset()
 }
 
@@ -123,7 +128,7 @@ func (md *mdContent) fillContentXML(output []byte) error {
 	d.Strict = false
 	d.AutoClose = xml.HTMLAutoClose
 	d.Entity = xml.HTMLEntity
-	fdh1, fdh2, fdh3 := false, false, false
+	fdh := false
 	getNewId, getLastId := h3Factory()
 	contBuf := bytes.NewBuffer(make([]byte, 0, len(output) * 2))
 	for token, err := d.RawToken();err != io.EOF; token, err = d.RawToken() {
@@ -132,17 +137,8 @@ func (md *mdContent) fillContentXML(output []byte) error {
 		}
 		switch t := token.(type) {
 		case xml.StartElement:
-			switch t.Name.Local {
-			case "h1", "H1":
-				if md.Title1.has() == false {
-					fdh1 = true
-				}
-			case "h2", "H2":
-				if md.Title2.has() == false {
-					fdh2 = true
-				}
-			case "h3", "H3":
-				fdh3 = true
+			if mode != "none" && t.Name.Local	== mode {
+				fdh = true
 				md.title3.reset()
 				t.Attr = append(t.Attr, xml.Attr{xml.Name{"", "id"}, string(getNewId())})
 			}
@@ -153,28 +149,13 @@ func (md *mdContent) fillContentXML(output []byte) error {
 			}
 			contBuf.WriteString(">")
 		case xml.EndElement:
-			switch t.Name.Local {
-			case "h1", "H1":
-				if fdh1 {
-					fdh1 = false
-				}
-			case "h2", "H2":
-				if fdh2 {
-					fdh2 = false
-				}
-			case "h3", "H3":
-				fdh3 = false
+			if mode != "none" && t.Name.Local == mode {
+				fdh = false
 				md.addToUl(getLastId())
 			}
 			contBuf.WriteString(fmt.Sprintf("</%s>", html.EscapeString(t.Name.Local)))
 		case xml.CharData:
-			if fdh1 {
-				md.Title1.addMore(t)
-			}
-			if fdh2 {
-				md.Title2.addMore(t)
-			}
-			if fdh3 {
+			if fdh {
 				md.title3.addMore(t)
 			}
 			contBuf.WriteString(html.EscapeString(string(t)))
@@ -188,12 +169,15 @@ func (md *mdContent) fillContentXML(output []byte) error {
 			contBuf.WriteString("INVALID TOKEN")
 		}
 	}
-	listMenu, err := xml.MarshalIndent(md.listMenu, "", "  ")
-	if err != nil {
-		return err
-	}
-	md.ListMenu = string(listMenu)
 	md.Content = contBuf.String()
+
+	if mode != "none" {
+		listMenu, err := xml.MarshalIndent(md.listMenu, "", "  ")
+		if err != nil {
+			return err
+		}
+		md.ListMenu = string(listMenu)
+	}
 	return nil
 }
 
@@ -243,15 +227,34 @@ func (md *mdContent) fillContent(output []byte) error {
 	return nil
 }
 
+func usage() {
+	fmt.Fprintf(os.Stderr, "Usage: md2min [-nav=h2] name.md\n  name.md: markdown file name\n")
+	flag.PrintDefaults()
+}
+
+func init() {
+	modeList = []string{"none", "h1", "h2", "h3", "h4", "h5", "h6"}
+	flag.StringVar(&mode, "nav", "none", `navigate level ["none", "h1", "h2", "h3", "h4", "h5", "h6"]`)
+}
+
 func main() {
-	defer pFail()			
+	defer pFail()
+
+	flag.Parse()
+
+	i := 0
+	for ; i<len(modeList); i++ {
+		if modeList[i] == mode {
+			break
+		}
+	}
 	
-	if len(os.Args) <= 1 {
+	if flag.NArg() < 1 || i >= len(modeList) {
 		usage()
 		return
 	}
 
-	name := os.Args[1]
+	name := flag.Args()[0]
 	file, err := os.Open(name)
 	if err != nil {
 		panic(err)
@@ -264,7 +267,7 @@ func main() {
 	}
 	
 	output := blackfriday.MarkdownBasic(input)
-	md := new(mdContent).init(name)
+	md := new(mdContent).init()
 	err = md.fillContent(output)
 	if err != nil {
 		panic(err)

@@ -7,23 +7,37 @@ var templContent = `<!doctype html>
 		<meta http-equiv="X-UA-Compatible" content="chrome=1">
 		<title></title>
 		<style text="text/css">
+body {
+    overflow-x: hidden;
+}
 .container {
 		margin: 0 auto;
-		width: 1000px;
+		width: 1020px;
+}
+.nav-wrap {
+    display: block;
+    width: 200px;
+    height: 650px;
+    float: left;
+    position: fixed;
+		padding: 3px;
+		margin: 0;
+		border: 0;
+		font: 13px Helvetica, arial, freesans, clean, sans-serif;
+		line-height: 1.4;
 }
 .nav {
 		display: block;
-		width: 180px;
+		width: 200px;
 		float: left;
 		position: fixed;
 		padding: 3px;
 		border-radius: 2px;
 		margin: 40px 0 0 0;
 		border: 0;
-		background: {{.Color}};
 		font: 13px Helvetica, arial, freesans, clean, sans-serif;
 		line-height: 1.4;
-		overflow: hidden;
+    {{.MenuStyle}}
 }
 .nav ul {
 		background: #fafafb;
@@ -54,7 +68,7 @@ var templContent = `<!doctype html>
 		font: 13px Helvetica, arial, freesans, clean, sans-serif;
 		display: block;
 		width: 800px;
-    {{.Align}}
+    {{.ContentStyle}}
     font-size: 14px;
     line-height: 1.6;
 }
@@ -131,6 +145,9 @@ var templContent = `<!doctype html>
 }
 .markdown-body p, .markdown-body blockquote, .markdown-body ul, .markdown-body ol, .markdown-body dl, .markdown-body table, .markdown-body pre {
     margin: 15px 0;
+}
+.markdown-body li ul, .markdown-body li ol {
+    margin-top: 0;
 }
 .markdown-body hr {
     border: 0 none;
@@ -326,12 +343,21 @@ var templContent = `<!doctype html>
     background-color: transparent;
     border: medium none;
 }
+.container .logo {
+    display: block;
+    text-align: right;
+    font-size: 10px;
+}
+{{.ScrollBar}}
 		</style>
 	</head>
 	<body>
   <div class="container">
-    <div class="nav">{{.ListMenu}}</div>
-  	<div class="markdown-body">{{.Content}}</div>
+    <div class="nav-wrap">
+      <div class="nav">{{.ListMenu}}</div>
+      {{.MenuLogo}}
+    </div>
+  	<div class="markdown-body">{{.Content}}{{.ContentLogo}}</div>
   <div>
 	</body>
 </html>

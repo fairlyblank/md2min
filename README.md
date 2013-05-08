@@ -6,7 +6,7 @@ convert markdown file to minimal html file, using github css.
 build
 -----
 
-    go build md2min templates.go
+    go build md2min.go templates.go
 
 usage
 -----

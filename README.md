@@ -6,7 +6,7 @@ convert markdown file to minimal html file, using github css.
 install
 -------
 
-	go get https://github.com/fairlyblank/md2min
+	go get github.com/fairlyblank/md2min
 
 If you want to build standalone execution:
 

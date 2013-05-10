@@ -24,12 +24,12 @@ As standalone execution:
 
 As package, please review [main.go](https://github.com/fairlyblank/md2min/blob/master/main/main.go).Generally:
 
-1. Prepare input byte slice and output writer
+#### 1. Prepare input byte slice and output writer
 
 	bytes, _ := ioutil.ReadAll(filename)
 	wr, _ := os.Create(newname)
 
-2. Initialize package
+#### 2. Initialize package
 
 Without navigator:
 
@@ -39,7 +39,7 @@ Using "\<h2\>" tag as navigator:
 
 	md := md2min.New("h2")
 
-3. Parse
+#### 3. Parse
 
 	md.Parse(bytes, wr)
 

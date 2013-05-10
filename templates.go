@@ -16,7 +16,6 @@ body {
 }
 .nav-wrap {
     display: block;
-    width: 200px;
     height: 650px;
     float: left;
     position: fixed;
@@ -25,10 +24,10 @@ body {
 		border: 0;
 		font: 13px Helvetica, arial, freesans, clean, sans-serif;
 		line-height: 1.4;
+    {{.MenuWrapStyle}}
 }
 .nav {
 		display: block;
-		width: 200px;
 		float: left;
 		position: fixed;
 		padding: 3px;

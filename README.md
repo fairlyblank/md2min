@@ -22,7 +22,9 @@ As standalone execution:
 	  name.md: markdown file name
 	  -nav="none": navigate level ["none", "h1", "h2", "h3", "h4", "h5", "h6"]
 
-As package, please review [main.go](https://github.com/fairlyblank/md2min/blob/master/main/main.go).Generally:
+As package, please review [main.go](https://github.com/fairlyblank/md2min/blob/master/main/main.go).
+
+Generally:
 
 #### 1. Prepare input byte slice and output writer
 

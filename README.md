@@ -22,17 +22,14 @@ As standalone execution:
 	  name.md: markdown file name
 	  -nav="none": navigate level ["none", "h1", "h2", "h3", "h4", "h5", "h6"]
 
-As package, please review [main.go](https://github.com/fairlyblank/md2min/main/main.go).Generally:
+As package, please review [main.go](https://github.com/fairlyblank/md2min/blob/master/main/main.go).Generally:
 
-### 1. Prepare input byte slice
+1. Prepare input byte slice and output writer
 
 	bytes, _ := ioutil.ReadAll(filename)
-
-### 2. Prepare output writer
-
 	wr, _ := os.Create(newname)
 
-### 3. Initialize package
+2. Initialize package
 
 Without navigator:
 
@@ -42,11 +39,11 @@ Using "\<h2\>" tag as navigator:
 
 	md := md2min.New("h2")
 
-### 4. Parse
+3. Parse
 
 	md.Parse(bytes, wr)
 
-example
+examples
 -------
 
 	md2min ./example/example.md

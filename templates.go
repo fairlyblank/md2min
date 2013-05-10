@@ -1,4 +1,4 @@
-package main
+package md2min
 
 var templContent = `<!doctype html>
 <html>

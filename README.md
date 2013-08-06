@@ -56,3 +56,9 @@ will generate html without navigator.
 
 will generate html with "\<h2\>" title navigator.
 
+About
+-----
+md2min is written in [Google Go](http://golang.org/).
+
+md2min is open source software released under the [MIT License](https://github.com/fairlyblank/md2min/blob/master/LICENSE).
+
